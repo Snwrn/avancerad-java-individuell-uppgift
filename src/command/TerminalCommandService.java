@@ -31,8 +31,8 @@ public class TerminalCommandService implements ICommandService {
             System.out.println("Enter your choice: ");
             String commandInput = scanner.nextLine();
             int choice = 0;
-            if (null != numberValidator.validateNumericInput(commandInput)) {
-                choice = numberValidator.validateNumericInput(commandInput);
+            if (null != utility.InputHelper.validateNumericInput(commandInput)) {
+                choice = utility.InputHelper.validateNumericInput(commandInput);
                 if (choice == (commands.size() + 1)) {
 
                     //put exit func here

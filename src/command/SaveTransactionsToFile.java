@@ -20,7 +20,6 @@ public class SaveTransactionsToFile extends Command{
         } catch (Exception e) {
             System.out.println("Error saving transactions: " + e.getMessage());
         }
-
         backToMenu();
     }
 }
