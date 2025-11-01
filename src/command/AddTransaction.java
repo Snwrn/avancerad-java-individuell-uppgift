@@ -24,7 +24,7 @@ public class AddTransaction extends Command {
         } else if (userChoice == 2) {
             handleWithdrawal(scanner);
         }
-        printSummary();
+        printTransactionSummary();
         backToMenu();
     }
 
@@ -70,14 +70,5 @@ public class AddTransaction extends Command {
      * Adds transaction to list and prints updated info.
      */
 
-    private void printSummary() {
-        System.out.println("-----------------------------");
-        System.out.println("Transaction log:");
-        for (Transaction t : service.TransactionService.transactions) {
-            System.out.println("Amount: " + DoubleFormatHelper.formatDouble(t.getAmount())
-                    + " *** Date: " + t.getDate());
-        }
-        System.out.println("-----------------------------");
-        System.out.println("Total Balance: " + service.TransactionService.getCurrentBalance());
-    }
+
 }

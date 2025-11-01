@@ -1,4 +1,6 @@
 package command;
+import models.Transaction;
+import utility.DoubleFormatHelper;
 import utility.ScannerHelper;
 
 import java.util.Scanner;
@@ -35,6 +37,19 @@ public abstract class Command {
             }
             System.out.println();
             System.out.println();// move to new line after dots
+    }
+
+    protected void printTransactionSummary() {
+        System.out.println("-----------------------------");
+        System.out.println("Transaction log:");
+        for (Transaction t : service.TransactionService.transactions) {
+            System.out.println("Amount: " + DoubleFormatHelper.formatDouble(t.getAmount())
+                    + " *** Date: " + t.getDate());
+        }
+        System.out.println("-----------------------------");
+        System.out.println("Total Balance: "
+                + DoubleFormatHelper.formatDouble(service.TransactionService.getCurrentBalance()));
+        System.out.println("-----------------------------");
     }
 
     Scanner scanner = ScannerHelper.getScanner();

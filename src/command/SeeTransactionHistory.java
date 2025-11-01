@@ -7,7 +7,7 @@ public class SeeTransactionHistory extends Command {
 
     @Override
     public void execute() {
-        System.out.println("see transaction history");
+        printTransactionSummary();
         backToMenu();
     }
 }

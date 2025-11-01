@@ -7,7 +7,8 @@ public class SeeBalance extends Command {
 
     @Override
     public void execute() {
-        System.out.println("see balance");
+        String currentBalance = utility.DoubleFormatHelper.formatDouble(service.TransactionService.getCurrentBalance());
+        System.out.println("Your current balance: " + currentBalance);
         backToMenu();
     }
 }
