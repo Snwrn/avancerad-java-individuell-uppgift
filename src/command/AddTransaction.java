@@ -1,9 +1,6 @@
 package command;
 
 
-import models.Transaction;
-import utility.DoubleFormatHelper;
-
 import java.util.Scanner;
 
 public class AddTransaction extends Command {

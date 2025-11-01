@@ -7,10 +7,8 @@ import utility.DoubleFormatHelper;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
-// Vi skulle även kunna göra TodoService till ett interface för att
-// kunna återanvända den, och göra den mer flexibel, lik CommandService
+
 public class TransactionService {
     public static final ITransactionRepository repository = new FileTransactionRepository();
     public static ArrayList<Transaction> transactions = new ArrayList<>();
@@ -29,11 +27,5 @@ public class TransactionService {
         System.out.println((isDeposit ? "Deposit" : "Withdrawal") + " added: "
                 + DoubleFormatHelper.formatDouble(amount));
     }
-    // Vi kan enkelt byta implementation genom att
-    // kommentera ut varianten vi inte vill använda
-   // private ITransactionRepository transactionRepository = new FileTransactionRepository();
-    //private ITodoRepository todoRepository = new DatabaseTodoRepository();
-
-    // Visar exempel på hur vi hade använt TodoRepository interfacet
 
 }

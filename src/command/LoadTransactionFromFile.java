@@ -1,11 +1,8 @@
 package command;
 
 import models.Transaction;
-import repositories.FileTransactionRepository;
-import repositories.ITransactionRepository;
 import service.TransactionService;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 

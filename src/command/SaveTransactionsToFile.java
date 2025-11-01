@@ -1,12 +1,6 @@
 package command;
 
-import models.Transaction;
 import service.TransactionService;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
 
 public class SaveTransactionsToFile extends Command{
     public SaveTransactionsToFile() {

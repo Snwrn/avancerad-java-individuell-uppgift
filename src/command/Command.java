@@ -6,7 +6,6 @@ import utility.ScannerHelper;
 import java.util.Scanner;
 
 public abstract class Command {
-    // Dessa är final för att de aldrig ändras
     private static int nextId = 1;
     protected final String name;
     protected final String description;

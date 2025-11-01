@@ -1,14 +1,11 @@
 package command;
 
 import utility.ScannerHelper;
-import utility.numberValidator;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-// En terminal-implementation av command service interfacet.
-// Den hanterar kommandon genom en array list och Scanner (terminal)
 public class TerminalCommandService implements ICommandService {
 
     private final List<Command> commands=new ArrayList<>();
