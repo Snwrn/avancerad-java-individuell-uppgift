@@ -1,6 +1,5 @@
 package command;
 
-
 import java.util.Scanner;
 
 public class AddTransaction extends Command {
@@ -11,10 +10,8 @@ public class AddTransaction extends Command {
 
     @Override
     public void execute() {
-
         System.out.println("1. Deposit (add money to the account)");
         System.out.println("2. Withdrawal (remove money from the account)");
-        Scanner scanner = utility.ScannerHelper.getScanner();
         int userChoice = getTransactionType(scanner);
         if (userChoice == 1) {
             handleDeposit(scanner);
@@ -39,7 +36,6 @@ public class AddTransaction extends Command {
     private void handleDeposit(Scanner scanner) {
         System.out.print("Write how much is added to your account:");
         double amount = utility.InputHelper.getValidAmount(scanner);
-        //if (amount == -1) return;
 
         double newBalance = service.TransactionService.getCurrentBalance() + amount;
         if (newBalance > utility.InputHelper.MAX_AMOUNT) {
@@ -52,20 +48,11 @@ public class AddTransaction extends Command {
     private void handleWithdrawal(Scanner scanner) {
         System.out.print("Write how much is withdrawn from your account:");
         double amount = utility.InputHelper.getValidAmount(scanner);
-   //     if (amount == -1) return;
 
         if (amount > service.TransactionService.getCurrentBalance()) {
             System.out.println("Not enough balance. Transaction canceled.");
             return;
         }
-
         service.TransactionService.addTransaction(-amount, false);
     }
-
-
-    /**
-     * Adds transaction to list and prints updated info.
-     */
-
-
 }

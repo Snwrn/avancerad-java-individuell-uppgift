@@ -27,5 +27,4 @@ public class TransactionService {
         System.out.println((isDeposit ? "Deposit" : "Withdrawal") + " added: "
                 + DoubleFormatHelper.formatDouble(amount));
     }
-
 }

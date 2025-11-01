@@ -48,6 +48,7 @@ public class FilterHelper {
         }
         return filterYear;
     }
+
     public static int getMonthFromUserInput() {
         Scanner scanner = new Scanner(System.in);
         int month = 0;
@@ -83,6 +84,7 @@ public class FilterHelper {
         }
         return date;
     }
+
     public static int getWeekNumberFromUserInput() {
         Scanner scanner = new Scanner(System.in);
         int week = 0;
@@ -102,8 +104,9 @@ public class FilterHelper {
         }
         return week;
     }
+
     public static int getWeekOfYear(LocalDate date) {
         return date.get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear());
     }
-    }
+}
 

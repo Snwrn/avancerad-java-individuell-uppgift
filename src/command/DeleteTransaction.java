@@ -12,7 +12,6 @@ public class DeleteTransaction extends Command {
     public void execute() {
 
         //Checks if the transaction list has anything to delete
-        Scanner scanner = utility.ScannerHelper.getScanner();
         if (!service.TransactionService.transactions.isEmpty()) {
             //Prints out all the transactions that are available to delete.
             System.out.println("Transaction log:");

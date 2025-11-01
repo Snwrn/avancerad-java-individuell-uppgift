@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public class Transaction {
-    private final UUID id;
+    private final UUID id; //unsure if id is needed
     public double amount;
     public LocalDate transactionDate;
     public Boolean isDeposit;
@@ -13,7 +13,7 @@ public class Transaction {
         this.amount = amount;
         this.transactionDate = transactionDate;
         this.isDeposit = isDeposit;
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID(); //Id is assigned but so far never used
     }
 
     public double getAmount() {

@@ -2,7 +2,7 @@ package command;
 
 import service.TransactionService;
 
-public class SaveTransactionsToFile extends Command{
+public class SaveTransactionsToFile extends Command {
     public SaveTransactionsToFile() {
         super("Save transactions", "Save transaction history to a file.");
     }
