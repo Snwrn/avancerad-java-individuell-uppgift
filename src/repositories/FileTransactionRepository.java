@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//I am scared to rework the repository to avoid it printing or taking input from the user.
+//I understood that in the future, the repository should not have scanners and print.
+
 public class FileTransactionRepository implements ITransactionRepository {
 
     public FileTransactionRepository() {
