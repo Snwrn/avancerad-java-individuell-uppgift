@@ -1,6 +1,7 @@
 package repositories;
 
 import models.Transaction;
+import utility.ScannerHelper;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -23,10 +24,14 @@ public class FileTransactionRepository implements ITransactionRepository {
             System.out.println("No transactions to save.");
             return;
         }
-
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = ScannerHelper.getScanner();
         System.out.println("Enter a filename to save transactions:");
+
         String fileName = scanner.nextLine().trim();
+        if ((fileName.isEmpty())||!fileName.matches("[a-zA-Z0-9_-]+")) {
+            System.out.println("Invalid filename. You can only use letters, numbers, underscores, and dashes.");
+            return;
+        }
 
         File file = new File(new File("save"), fileName + ".txt");
         if (file.exists()) {
@@ -46,8 +51,12 @@ public class FileTransactionRepository implements ITransactionRepository {
     @Override
     public List<Transaction> loadTransactions() throws FileNotFoundException {
         File dir = new File("save");
+        if (!dir.exists() || !dir.isDirectory()) {
+            System.out.println("No save folder found.");
+            return new ArrayList<>();
+        }
         File[] files = dir.listFiles();
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = ScannerHelper.getScanner();
 
         if (files == null || files.length == 0) {
             System.out.println("No save files found.");
@@ -60,9 +69,21 @@ public class FileTransactionRepository implements ITransactionRepository {
         }
 
         System.out.println("Enter the number of the file to load:");
-        int choice = Integer.parseInt(scanner.nextLine().trim());
-        File chosenFile = files[choice - 1];
+        String input = scanner.nextLine().trim();
+        int choice;
+        try {
+            choice = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid number.");
+            return new ArrayList<>();
+        }
 
+        if (choice < 1 || choice > files.length) {
+            System.out.println("Invalid number. Please choose between 1 and " + files.length + ".");
+            return new ArrayList<>();
+        }
+
+        File chosenFile = files[choice - 1];
         List<Transaction> transactions = new ArrayList<>();
         try (Scanner fileScanner = new Scanner(chosenFile)) {
             int lineNumber = 0;

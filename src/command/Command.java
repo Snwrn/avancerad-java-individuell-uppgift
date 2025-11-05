@@ -46,16 +46,6 @@ public abstract class Command {
         System.out.println("-----------------------------");
     }
 
-    //Never used so far
-    public String getName() {
-        return name;
-    }
-
-    //Never used so far
-    public String getDescription() {
-        return description;
-    }
-
     public int getIdNumber() {
         return idNumber;
     }

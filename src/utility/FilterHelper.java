@@ -34,7 +34,7 @@ public class FilterHelper {
     //validates that the year is 4 digits
     public static int getYearFromUserInput() {
         int filterYear = 0;
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = ScannerHelper.getScanner();
         while (filterYear == 0) {
             System.out.print("Please write a year:");
             String userInput = scanner.nextLine().trim();
@@ -50,7 +50,7 @@ public class FilterHelper {
     }
 
     public static int getMonthFromUserInput() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = ScannerHelper.getScanner();
         int month = 0;
         while (month == 0) {
             System.out.print("Please write a month (1-12): ");
@@ -70,7 +70,7 @@ public class FilterHelper {
     }
 
     public static LocalDate getDayFromUserInput() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = ScannerHelper.getScanner();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date = null;
         while (date == null) {
@@ -86,7 +86,7 @@ public class FilterHelper {
     }
 
     public static int getWeekNumberFromUserInput() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = ScannerHelper.getScanner();
         int week = 0;
         while (week == 0) {
             System.out.print("Please enter week number (1-53): ");

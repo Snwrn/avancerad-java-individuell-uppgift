@@ -7,7 +7,6 @@ import utility.FilterHelper;
 import utility.InputHelper;
 
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class FilterTransactions extends Command {
     public FilterTransactions() {
@@ -45,7 +44,7 @@ public class FilterTransactions extends Command {
             String userInput2 = scanner.nextLine();
             Integer validatedInput2 = InputHelper.validateNumericInput(userInput2);
 
-            if (validatedInput2 != null && validatedInput2 < 1 || validatedInput2 != null && validatedInput2 > FilterChoice.values().length) {
+            if ((validatedInput2 != null && validatedInput2 < 1) || (validatedInput2 != null && validatedInput2 > FilterChoice.values().length)) {
                 System.out.println("Invalid choice. Please enter a valid number from the list.");
             } else if (validatedInput2 != null) {
                 usersFilterChoice = validatedInput2;
